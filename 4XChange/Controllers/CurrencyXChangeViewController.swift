@@ -57,7 +57,9 @@ class CurrencyXChangeViewController: UIViewController {
     @IBAction func invertButtonPressed(_ sender: UIButton) {
         swap(&baseCurrency, &targetCurrency)
         updatePickerUI(paramBaseCurr: baseCurrency, paramTargetCurr: targetCurrency)
-        xChangeManager.getXchangeRate(baseCurrency, to: targetCurrency)
+        DispatchQueue.main.async {
+            self.xChangeManager.getXchangeRate(self.baseCurrency, to: self.targetCurrency)
+        }
     }
     
 }
@@ -82,8 +84,8 @@ extension CurrencyXChangeViewController: XChangeManagerDelegate {
     
     func didUpdateXChangeRate(_ xChangeManager: XChangeManager, exchangedModel: XChangeModel) {
         DispatchQueue.main.async {
-            self.rate = exchangedModel.rate
-            self.exchangeRateLabel.text = "1 \(self.baseCurrency) = \(self.rate) \(self.targetCurrency)"
+            let rateString = String(format: "%.5f", exchangedModel.rate)
+            self.exchangeRateLabel.text = "1 \(self.baseCurrency) = \(rateString) \(self.targetCurrency)"
         }
     }
     

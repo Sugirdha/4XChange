@@ -50,12 +50,16 @@
                                         </constraints>
                                     </pickerView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exchange Rate" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="8Ae-lp-uD8">
-                                        <rect key="frame" x="83" y="331" width="154" height="29"/>
+                                        <rect key="frame" x="0.0" y="331" width="320" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="8Ae-lp-uD8" firstAttribute="leading" secondItem="pr3-fC-uCL" secondAttribute="leading" id="hw2-OL-Fyp"/>
+                                    <constraint firstAttribute="trailing" secondItem="8Ae-lp-uD8" secondAttribute="trailing" id="pak-x4-5AV"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
