@@ -16,49 +16,63 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="pr3-fC-uCL">
-                                <rect key="frame" x="47" y="268" width="320" height="360"/>
+                                <rect key="frame" x="119.5" y="334" width="175" height="228"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Base Currency" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7d-vI-xKG">
-                                        <rect key="frame" x="78" y="0.0" width="164" height="20.5"/>
+                                        <rect key="frame" x="5.5" y="0.0" width="164" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N7A-Vf-JKW">
-                                        <rect key="frame" x="0.0" y="32.5" width="320" height="100"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="V8u-zi-MCv"/>
-                                        </constraints>
-                                    </pickerView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sev-Rc-guJ" customClass="DropDown" customModule="iOSDropDown">
+                                        <rect key="frame" x="0.0" y="32.5" width="175" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="checkMarkEnabled" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedRowColor">
+                                                <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xg1-YL-UxQ">
-                                        <rect key="frame" x="145" y="144.5" width="30" height="30"/>
+                                        <rect key="frame" x="72.5" y="78.5" width="30" height="30"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <action selector="invertButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W2a-0w-QMw"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Target Currency" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWo-gS-yzQ">
-                                        <rect key="frame" x="72.5" y="186.5" width="175" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="120.5" width="175" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5hg-Fw-cAX">
-                                        <rect key="frame" x="0.0" y="219" width="320" height="100"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="vSP-cX-cuz"/>
-                                        </constraints>
-                                    </pickerView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ANl-2T-YYx" customClass="DropDown" customModule="iOSDropDown">
+                                        <rect key="frame" x="0.0" y="153" width="175" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="selectedRowColor">
+                                                <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="checkMarkEnabled" value="NO"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exchange Rate" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="8Ae-lp-uD8">
-                                        <rect key="frame" x="0.0" y="331" width="320" height="29"/>
+                                        <rect key="frame" x="0.0" y="199" width="175" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ANl-2T-YYx" secondAttribute="trailing" id="5ND-ff-2Fm"/>
+                                    <constraint firstAttribute="trailing" secondItem="Sev-Rc-guJ" secondAttribute="trailing" id="5oX-Gm-ldO"/>
+                                    <constraint firstItem="ANl-2T-YYx" firstAttribute="leading" secondItem="pr3-fC-uCL" secondAttribute="leading" id="cXS-Cj-bnm"/>
                                     <constraint firstItem="8Ae-lp-uD8" firstAttribute="leading" secondItem="pr3-fC-uCL" secondAttribute="leading" id="hw2-OL-Fyp"/>
                                     <constraint firstAttribute="trailing" secondItem="8Ae-lp-uD8" secondAttribute="trailing" id="pak-x4-5AV"/>
+                                    <constraint firstItem="Sev-Rc-guJ" firstAttribute="leading" secondItem="pr3-fC-uCL" secondAttribute="leading" id="po9-qX-kBn"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -70,10 +84,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="baseCurrencyPicker" destination="N7A-Vf-JKW" id="LKE-dg-Zev"/>
+                        <outlet property="baseCurrencyDropDown" destination="Sev-Rc-guJ" id="pyD-rA-VhT"/>
                         <outlet property="exchangeRateLabel" destination="8Ae-lp-uD8" id="dXQ-ig-gZU"/>
                         <outlet property="invertButton" destination="xg1-YL-UxQ" id="GMZ-FO-ggW"/>
-                        <outlet property="targetCurrencyPicker" destination="5hg-Fw-cAX" id="cHA-Y0-2MW"/>
+                        <outlet property="targetCurrencyDropDown" destination="ANl-2T-YYx" id="hTW-jm-2fL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

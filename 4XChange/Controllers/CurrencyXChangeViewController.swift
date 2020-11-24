@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import iOSDropDown
 
 class CurrencyXChangeViewController: UIViewController {
 
-    @IBOutlet weak var baseCurrencyPicker: UIPickerView!
-    @IBOutlet weak var targetCurrencyPicker: UIPickerView!
+    @IBOutlet weak var baseCurrencyDropDown: DropDown!
+    @IBOutlet weak var targetCurrencyDropDown: DropDown!
     @IBOutlet weak var exchangeRateLabel: UILabel!
     @IBOutlet weak var invertButton: UIButton!
     
@@ -32,33 +33,32 @@ class CurrencyXChangeViewController: UIViewController {
         invertButton.setImage(invertImage, for: .normal)
         
         xChangeManager.delegate = self
-        baseCurrencyPicker.delegate = self
-        baseCurrencyPicker.dataSource = self
-        targetCurrencyPicker.delegate = self
-        targetCurrencyPicker.dataSource = self
-
-        xChangeManager.getCurrencyArray(defaultCurrency, to: favouriteCurrency)
-        xChangeManager.getXchangeRate(defaultCurrency, to: favouriteCurrency)
-    }
-
-    func updatePickerUI(paramBaseCurr: String, paramTargetCurr: String) {
         
-        if let row = self.currencies.firstIndex(of: paramBaseCurr) {
-            self.baseCurrencyPicker.selectRow(row, inComponent: 0, animated: true)
-            self.pickerView(self.baseCurrencyPicker, didSelectRow: row, inComponent: 0)
+        baseCurrency = defaultCurrency
+        targetCurrency = favouriteCurrency
+        
+        xChangeManager.getCurrencyArray(baseCurrency, to: targetCurrency)
+        xChangeManager.getXchangeRate(baseCurrency, to: targetCurrency)
+        
+        
+        baseCurrencyDropDown.didSelect { (selectedBaseCurrency, index, id) in
+            self.baseCurrency = selectedBaseCurrency
+            self.xChangeManager.getXchangeRate(self.baseCurrency, to: self.targetCurrency)
         }
-    
-        if let row = self.currencies.firstIndex(of: paramTargetCurr) {
-            self.targetCurrencyPicker.selectRow(row, inComponent: 0, animated: true)
-            self.pickerView(self.targetCurrencyPicker, didSelectRow: row, inComponent: 0)
+        
+        targetCurrencyDropDown.didSelect { (selectedTargetCurrency, index, id) in
+            self.targetCurrency = selectedTargetCurrency
+            self.xChangeManager.getXchangeRate(self.baseCurrency, to: self.targetCurrency)
         }
     }
+    
     
     @IBAction func invertButtonPressed(_ sender: UIButton) {
         swap(&baseCurrency, &targetCurrency)
-        updatePickerUI(paramBaseCurr: baseCurrency, paramTargetCurr: targetCurrency)
         DispatchQueue.main.async {
             self.xChangeManager.getXchangeRate(self.baseCurrency, to: self.targetCurrency)
+            self.baseCurrencyDropDown.text = self.baseCurrency
+            self.targetCurrencyDropDown.text = self.targetCurrency
         }
     }
     
@@ -74,11 +74,21 @@ extension CurrencyXChangeViewController: XChangeManagerDelegate {
 
     func didUpdateCurrencyPickers(_ xChangeManager: XChangeManager, exchangedModel: XChangeModel) {
         DispatchQueue.main.async {
-            self.currencies = exchangedModel.currencyArray
-            self.baseCurrencyPicker.reloadAllComponents()
-            self.targetCurrencyPicker.reloadAllComponents()
             
-            self.updatePickerUI(paramBaseCurr: self.defaultCurrency, paramTargetCurr: self.favouriteCurrency)
+            self.currencies = exchangedModel.currencyArray
+            
+            self.baseCurrencyDropDown.optionArray = self.currencies
+            self.targetCurrencyDropDown.optionArray = self.currencies
+            
+            if let baseCurrIndex = self.currencies.firstIndex(of: self.defaultCurrency) {
+                self.baseCurrency = self.currencies[baseCurrIndex]
+                self.baseCurrencyDropDown.text = self.baseCurrency
+            }
+            
+            if let targetCurrIndex = self.currencies.firstIndex(of: self.favouriteCurrency) {
+                self.targetCurrency = self.currencies[targetCurrIndex]
+                self.targetCurrencyDropDown.text = self.targetCurrency
+            }
         }
     }
     
@@ -91,26 +101,3 @@ extension CurrencyXChangeViewController: XChangeManagerDelegate {
     
 }
 
-//MARK: - PickerView - DataSource and Delegate
-
-extension CurrencyXChangeViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return currencies.count
-    }
-
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return currencies[row]
-    }
-
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        baseCurrency = currencies[baseCurrencyPicker.selectedRow(inComponent: 0)]
-        targetCurrency = currencies[targetCurrencyPicker.selectedRow(inComponent: 0)]
-        xChangeManager.getXchangeRate(baseCurrency, to: targetCurrency)
-    }
-
-}

@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48F1D839869D8810A9CCFF2B /* Pods_4XChange.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD411B4506D2B4A034673F6 /* Pods_4XChange.framework */; };
 		5A2780462566912D004073A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2780452566912D004073A0 /* AppDelegate.swift */; };
 		5A2780482566912D004073A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2780472566912D004073A0 /* SceneDelegate.swift */; };
 		5A27804A2566912D004073A0 /* CurrencyXChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2780492566912D004073A0 /* CurrencyXChangeViewController.swift */; };
@@ -17,9 +18,12 @@
 		5A27806225669212004073A0 /* XChangeRateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A27806125669212004073A0 /* XChangeRateData.swift */; };
 		5A27806525669235004073A0 /* XChangeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A27806425669235004073A0 /* XChangeModel.swift */; };
 		5A740CF8256A220000F68039 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A740CF7256A220000F68039 /* Keys.swift */; };
+		5A969621256C860B00CDEDAF /* iOSDropDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A969620256C860B00CDEDAF /* iOSDropDown.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0084D37C459C3723635B8A87 /* Pods-4XChange.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-4XChange.release.xcconfig"; path = "Target Support Files/Pods-4XChange/Pods-4XChange.release.xcconfig"; sourceTree = "<group>"; };
+		4FD411B4506D2B4A034673F6 /* Pods_4XChange.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_4XChange.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A2780422566912D004073A0 /* 4XChange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 4XChange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A2780452566912D004073A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A2780472566912D004073A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +36,8 @@
 		5A27806125669212004073A0 /* XChangeRateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XChangeRateData.swift; sourceTree = "<group>"; };
 		5A27806425669235004073A0 /* XChangeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XChangeModel.swift; sourceTree = "<group>"; };
 		5A740CF7256A220000F68039 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		5A969620256C860B00CDEDAF /* iOSDropDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = iOSDropDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		64142CB304E4B4BFAEBD19D1 /* Pods-4XChange.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-4XChange.debug.xcconfig"; path = "Target Support Files/Pods-4XChange/Pods-4XChange.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,17 +45,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A969621256C860B00CDEDAF /* iOSDropDown.framework in Frameworks */,
+				48F1D839869D8810A9CCFF2B /* Pods_4XChange.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20482244FA4FF1E20D47B937 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5A969620256C860B00CDEDAF /* iOSDropDown.framework */,
+				4FD411B4506D2B4A034673F6 /* Pods_4XChange.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5A2780392566912D004073A0 = {
 			isa = PBXGroup;
 			children = (
 				5A2780442566912D004073A0 /* 4XChange */,
 				5A2780432566912D004073A0 /* Products */,
+				651EDB2A88633E72BD4FCAEB /* Pods */,
+				20482244FA4FF1E20D47B937 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +130,15 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
+		651EDB2A88633E72BD4FCAEB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				64142CB304E4B4BFAEBD19D1 /* Pods-4XChange.debug.xcconfig */,
+				0084D37C459C3723635B8A87 /* Pods-4XChange.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -118,9 +146,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5A2780562566912F004073A0 /* Build configuration list for PBXNativeTarget "4XChange" */;
 			buildPhases = (
+				D3802C2AB4E04934995892E7 /* [CP] Check Pods Manifest.lock */,
 				5A27803E2566912D004073A0 /* Sources */,
 				5A27803F2566912D004073A0 /* Frameworks */,
 				5A2780402566912D004073A0 /* Resources */,
+				5E2645330B292523E383C5B2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -175,6 +205,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5E2645330B292523E383C5B2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-4XChange/Pods-4XChange-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-4XChange/Pods-4XChange-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-4XChange/Pods-4XChange-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D3802C2AB4E04934995892E7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-4XChange-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5A27803E2566912D004073A0 /* Sources */ = {
@@ -331,6 +403,7 @@
 		};
 		5A2780572566912F004073A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64142CB304E4B4BFAEBD19D1 /* Pods-4XChange.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -351,6 +424,7 @@
 		};
 		5A2780582566912F004073A0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0084D37C459C3723635B8A87 /* Pods-4XChange.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
